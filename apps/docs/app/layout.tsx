@@ -15,8 +15,8 @@ const sans = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Awesome UI Docs",
-  description: "Foundations and component details for the Awesome UI system."
+  title: "Clario UI Docs",
+  description: "Documentation for the Clario UI component system, tokens, and shared foundations."
 };
 
 export default function RootLayout({
