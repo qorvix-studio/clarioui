@@ -17,3 +17,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const Ghost: Story = {
+  args: {
+    variant: "ghost",
+    children: "Secondary action"
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    isDisabled: true,
+    children: "Unavailable"
+  }
+};

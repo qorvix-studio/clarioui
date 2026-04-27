@@ -1,16 +1,28 @@
-import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import {
+  Button as AriaButton,
+  composeRenderProps,
+  type ButtonProps as AriaButtonProps
+} from "react-aria-components";
 
-type ButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
+export interface ButtonProps extends AriaButtonProps {
+  variant?: "solid" | "ghost";
+}
 
-export function Button({ children, className, type = "button", ...props }: ButtonProps) {
+export function Button({
+  children,
+  className,
+  variant = "solid",
+  ...props
+}: ButtonProps) {
   return (
-    <button
-      className={["aui-button", className].filter(Boolean).join(" ")}
-      type={type}
+    <AriaButton
+      className={composeRenderProps(className, (providedClassName) =>
+        ["aui-button", `aui-button--${variant}`, providedClassName].filter(Boolean).join(" ")
+      )}
+      data-variant={variant}
       {...props}
     >
       {children}
-    </button>
+    </AriaButton>
   );
 }
-
